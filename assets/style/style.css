@@ -54,3 +54,6 @@ body {
 .thumb-img {
   width: 50%;
 }
+.get-price.hidden {
+  visibility: collapse;
+}

@@ -42,6 +42,9 @@ export default class CoinCard {
             <h3>${this.apiSymbol}</h3>
             <h3>${this.symbol}</h3>
             <h3>${this.marketCapRank}</h3>
+            <div class="card-btn-container">
+                <button class="get-price" id="${this.id}">Get price</button>
+            </div>
         </li>        
         `;
   }
