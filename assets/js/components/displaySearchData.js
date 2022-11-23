@@ -2,7 +2,7 @@ import Coin from "../class/Coin.js";
 import CoinCard from "../class/CoinCard.js";
 
 const searchData = (data) => {
-  const searchBtn = document.getElementById("search");
+  // const searchBtn = document.getElementById("search");
 
   const cardContainer = document.querySelector(".card-container");
   let coinCards = [];
@@ -20,7 +20,7 @@ const searchData = (data) => {
       );
       coinCards.push(coinCard);
     }
-    console.log(coinCards);
+    // console.log(coinCards);
     coinCards.map((coinCard) => {
       cardContainer.innerHTML += coinCard.showThumb();
     });
@@ -28,16 +28,16 @@ const searchData = (data) => {
     for (const card of cards) {
       card.addEventListener("click", (e) => console.log(card.id));
       card.addEventListener("mouseenter", () => {
-        console.log(coinCards);
+        // console.log(coinCards);
         coinCards
           .filter((coinCard) => coinCard.id === card.id)
           .map((coinCard) => (card.innerHTML = coinCard.display()));
       });
       card.addEventListener("mouseleave", () => {
-        console.log(coinCards);
+        // console.log(coinCards);
         coinCards
           .filter((coinCard) => coinCard.id === card.id)
-          .map((coinCard) => (card.innerHTML = coinCard.showThumb()));
+          .map((coinCard) => (card.innerHTML = coinCard.showBackThumb()));
       });
     }
   } else {

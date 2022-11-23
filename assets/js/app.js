@@ -6,7 +6,8 @@ console.log("Go faire un projet SYMPA !");
 document.addEventListener("DOMContentLoaded", async () => {
   const searchBtn = document.getElementById("search");
   const globalBtn = document.getElementById("global");
-  const cardContainer = document.getElementById("cardContainer");
+  const cardContainer = document.querySelector(".card-container");
+  const searchError = document.querySelector(".search-error");
 
   searchBtn.addEventListener("click", (e) => {
     const searchForm = document.querySelector(".search-form");
@@ -17,10 +18,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       searchForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         // on submit, clear the card-container
-        const searchData = await fetchData(searchBtn.id, searchValue.value)
-          .then((res) => res)
-          .catch((err) => console.log(err));
-        displaySearchData(searchData);
+        cardContainer.innerHTML = "";
+
+        // check content value
+        console.log(searchValue.value.length);
+        if (searchValue.value.length === 0) {
+          searchError.innerHTML = "Veuiller renseigner le nom d'un coin";
+        } else {
+          searchError.innerHTML = "";
+
+          const searchData = await fetchData(searchBtn.id, searchValue.value)
+            .then((res) => res)
+            .catch((err) => console.log(err));
+          displaySearchData(searchData);
+        }
       });
     } else {
       searchForm.classList.remove("visible");

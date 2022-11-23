@@ -11,20 +11,38 @@ export default class CoinCard {
   showThumb() {
     return `
         <li class="card" id=${this.id}>
-            <img class="thumb-img" src=${this.thumb}>
+            <div class="thumb-left">
+                <div class="img-container">
+                    <img class="thumb-img" src=${this.thumb}>
+                </div>
+            </div>
+            <div class="thumb-right">
+                <h2>${this.name}</h2>
+            </div>
         </li>
+        `;
+  }
+  showBackThumb() {
+    return `
+        <div class="thumb-left">
+            <div class="img-container">
+                <img class="thumb-img" src=${this.thumb}>
+            </div>
+            <div class="thumb-right">
+                <h2>${this.name}</h2>
+            </div>
+        </div>
         `;
   }
 
   display() {
     return `
-        
+        <li class="card" id=${this.id}>
             <h2>${this.name}</h2>
             <h3>${this.apiSymbol}</h3>
             <h3>${this.symbol}</h3>
             <h3>${this.marketCapRank}</h3>
-            <img src=${this.thumb}>
-       
+        </li>        
         `;
   }
 }
