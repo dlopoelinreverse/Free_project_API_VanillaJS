@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchValue = document.getElementById("searchValue");
   //FAVORITES
 
+  // basic state
   let showingHome = true;
   let showingForm = false;
   let showingFavorites = false;
 
-  // basic state
   showHome(showingHome, homePage);
   showSearchPage(
     showingForm,
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for (const navLink of navButtons) {
     navLink.addEventListener("click", (e) => {
+      // envoyeyer le prosp de dom en fonction de l'id renvoyé par
       switch (e.target.id) {
         case "home":
           return (

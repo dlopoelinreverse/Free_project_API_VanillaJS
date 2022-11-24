@@ -1,6 +1,8 @@
 import fetchData from "../utils/fetchData.js";
 import displaySearchData from "./displaySearchData.js";
 
+// class autoloader
+
 const showSearchPage = (
   show,
   searchPage,
@@ -13,7 +15,7 @@ const showSearchPage = (
   // if show => creer le form => logique
 
   if (show) {
-    console.log(show);
+    // console.log(show);
 
     searchPage.classList.remove("hidden");
 
@@ -25,6 +27,8 @@ const showSearchPage = (
       // check content value
 
       if (searchValue.value === "") {
+        // en calss ?
+
         searchError.innerHTML = "Veuillez renseigner le nom d'un coin";
       } else {
         searchError.innerHTML = "";
@@ -36,7 +40,7 @@ const showSearchPage = (
       }
     });
   } else {
-    console.log(show);
+    // console.log(show);
 
     searchPage.classList.add("hidden");
   }

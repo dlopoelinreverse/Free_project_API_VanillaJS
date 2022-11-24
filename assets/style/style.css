@@ -65,20 +65,29 @@ ul {
 .card {
   background: grey;
   z-index: 10;
-  padding: 10px;
+  padding: 20px 10px;
 
   display: block;
   width: 18%;
+  height: 250px;
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: row;
+}
+.thumb-left {
+  width: 50%;
 }
 .img-container {
-  width: 50%;
+  /* height: 50%; */
   margin: 0 auto;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
 }
 .thumb-img {
-  width: 50%;
+  width: 35px;
 }
 .get-price.hidden {
   visibility: collapse;

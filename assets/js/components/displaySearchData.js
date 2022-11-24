@@ -1,6 +1,6 @@
 import Coin from "../class/Coin.js";
 import CoinCard from "../class/CoinCard.js";
-import fetchData from "../utils/fetchData.js";
+import addToFav from "../utils/addToFav.js";
 import showPriceSelection from "./showPriceSelection.js";
 
 const searchData = (data, cardContainer) => {
@@ -20,30 +20,36 @@ const searchData = (data, cardContainer) => {
     }
     // console.log(coinCards);
     coinCards.map((coinCard) => {
-      cardContainer.innerHTML += coinCard.showThumb();
+      cardContainer.innerHTML += coinCard.showCard();
     });
-    const cards = document.getElementsByClassName("card");
-    for (const card of cards) {
-      // on hover
+    // class queryselector
+    // const cards = document.getElementsByClassName("card");
+    // for (const card of cards) {
+    //   // on hover
 
-      card.addEventListener("mouseenter", () => {
-        // btnFav clique => func => setLocalStorage
+    //   card.addEventListener("mouseenter", () => {
+    //     // btnFav clique => func => setLocalStorage
 
-        coinCards
-          .filter((coinCard) => coinCard.id === card.id)
-          .map((coinCard) => (card.innerHTML = coinCard.display()));
+    //     coinCards
+    //       .filter((coinCard) => coinCard.id === card.id)
+    //       .map((coinCard) => {
+    //         card.innerHTML = coinCard.display();
+    //         //listen favBtn
+    //         const favBtn = document.getElementById("favBtn");
+    //         favBtn.addEventListener("click", () => addToFav(coinCard));
+    //       });
 
-        // get price
-        const cardBtnContainer = document.querySelector(".card-btn-container");
-        showPriceSelection(cardBtnContainer, card);
-      });
-      card.addEventListener("mouseleave", () => {
-        // console.log(coinCards);
-        coinCards
-          .filter((coinCard) => coinCard.id === card.id)
-          .map((coinCard) => (card.innerHTML = coinCard.showBackThumb()));
-      });
-    }
+    //     // get price
+    //     const cardBtnContainer = document.querySelector(".card-btn-container");
+    //     showPriceSelection(cardBtnContainer, card);
+    //   });
+    // card.addEventListener("mouseleave", () => {
+    //   // console.log(coinCards);
+    //   coinCards
+    //     .filter((coinCard) => coinCard.id === card.id)
+    //     .map((coinCard) => (card.innerHTML = coinCard.showBackThumb()));
+    // });
+    // }
   } else {
     throw new Error("Cannot get coins with this search");
   }
