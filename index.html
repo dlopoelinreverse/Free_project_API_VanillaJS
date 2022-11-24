@@ -9,19 +9,28 @@
 
 <body>
 
-    <div class="form-container">
-        <div class="buttons-container">
-            <button id="search">Chercher</button>
-            <button id="global">Globale</button>
-        </div>
-        <form class="search-form">
-            <input type="text" id="searchValue" placeholder="Recherche par nom de crypto ..." />
-            <input type="submit" value="Chercher" id="searchSubmit" />
-            <p class="search-error"></p>
-        </form>
+    <nav>
+        <ul>
+            <li class="nav-btn" id="home">Accueil</li>
+            <li class="nav-btn" id="search">Chercher</li>
+            <li class="nav-btn" id="favorites">Favoris</li>
+        </ul>
+    </nav>
+    <div class="home-page">
+        <h2>HOME</h2>
     </div>
-    <div class="result">
-        <ul class="card-container"></ul>
+    <div class="search-page">
+
+        <div class="form-container">
+            <form class="search-form">
+                <input type="text" id="searchValue" placeholder="Recherche par nom de crypto ..." />
+                <input type="submit" value="Chercher" id="searchSubmit" />
+                <p class="search-error"></p>
+            </form>
+        </div>
+        <div class="result">
+            <ul class="card-container"></ul>
+        </div>
     </div>
     <script type="module" src="./assets/js/app.js"></script>
 </body>

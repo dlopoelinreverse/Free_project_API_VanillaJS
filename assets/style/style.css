@@ -7,7 +7,37 @@
 body {
   background: salmon;
 }
+/* -----NAV------ */
 
+ul {
+  background: rgb(189, 139, 189);
+  display: flex;
+  justify-content: space-between;
+}
+.nav-btn {
+  list-style: none;
+  background: rgb(212, 86, 212);
+  padding: 2.5px 5px;
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+/* .nav-btn:hover {
+} */
+/* -----HOME-----*/
+.home-page {
+  background: rgb(136, 58, 49);
+}
+.home-page.hidden {
+  visibility: hidden;
+}
+
+/* -----SEARCH------ */
+.search-page {
+  background: rgb(250, 182, 182);
+}
+.search-page.hidden {
+  visibility: hidden;
+}
 .form-container {
   width: 50%;
   margin: 0 auto;
@@ -16,13 +46,6 @@ body {
 .buttons-container {
   width: 70%;
   margin: 0 auto;
-}
-
-.search-form {
-  visibility: hidden;
-}
-.search-form.visible {
-  visibility: visible;
 }
 
 .result {
@@ -35,6 +58,9 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+}
+.card-container.hidden {
+  visibility: hidden;
 }
 .card {
   background: grey;
@@ -55,5 +81,8 @@ body {
   width: 50%;
 }
 .get-price.hidden {
+  visibility: collapse;
+}
+.choose-btn-container.hidden {
   visibility: collapse;
 }

@@ -1,37 +1,86 @@
-import fetchData from "./utils/fetchData.js";
-import Coin from "./class/Coin.js";
-import showSearchForm from "./components/showSearchForm.js";
-import displaySearchData from "./components/displaySearchData.js";
+import showHome from "./components/showHome.js";
+import showSearchPage from "./components/showSearchPage.js";
 console.log("Go faire un projet SYMPA !");
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const searchBtn = document.getElementById("search");
-  const globalBtn = document.getElementById("global");
+document.addEventListener("DOMContentLoaded", () => {
+  //INIT LocalStorage
+  localStorage.setItem("favorites", []);
+  // ***************   DOM   *********************
+  //NAV
+  const navButtons = document.querySelectorAll(".nav-btn");
+  //HOME
+  const homePage = document.querySelector(".home-page");
+  //SEARCH
+  const searchPage = document.querySelector(".search-page");
+  const searchForm = document.querySelector(".search-form");
   const cardContainer = document.querySelector(".card-container");
   const searchError = document.querySelector(".search-error");
-  let show = "";
+  const searchValue = document.getElementById("searchValue");
+  //FAVORITES
 
-  searchBtn.addEventListener("click", (e) => {
-    const searchForm = document.querySelector(".search-form");
-    const searchValue = document.getElementById("searchValue");
-    show = true;
-    // show search form
-    showSearchForm(show);
+  let showingHome = true;
+  let showingForm = false;
+  let showingFavorites = false;
 
-    //   // caler dans une fonction "show form" true/false
+  // basic state
+  showHome(showingHome, homePage);
+  showSearchPage(
+    showingForm,
+    searchPage,
+    searchForm,
+    cardContainer,
+    searchError,
+    searchValue
+  );
 
-    //   // class d'event listener =>
-  });
-  globalBtn.addEventListener("click", async () => {
-    show = false;
-    showSearchForm(show);
-    if (globalBtn.id === "global") {
-      const globalData = await fetchData(globalBtn.id)
-        .then((res) => res)
-        .catch((err) => console.log(err));
-      console.log(globalData);
-    } else {
-      throw new Error("Error on global button, cannot fetch");
-    }
-  });
+  for (const navLink of navButtons) {
+    navLink.addEventListener("click", (e) => {
+      switch (e.target.id) {
+        case "home":
+          return (
+            showHome(showingHome, homePage),
+            showSearchPage(
+              showingForm,
+              searchPage,
+              searchForm,
+              cardContainer,
+              searchError,
+              searchValue
+            )
+          );
+        case "search":
+          return (
+            showSearchPage(
+              !showingForm,
+              searchPage,
+              searchForm,
+              cardContainer,
+              searchError,
+              searchValue
+            ),
+            showHome(!showingHome, homePage)
+          );
+        // case "favorites":
+
+        default:
+          return (
+            showHome(showingHome, homePage),
+            showSearchPage(
+              showingForm,
+              searchPage,
+              searchForm,
+              cardContainer,
+              searchError,
+              searchValue
+            )
+          );
+      }
+    });
+  }
+
+  //   //   // caler dans une fonction "show form" true/false
+
+  //   //   // class d'event listener =>
+  // });
+  // localStorage ? => show fav
 });

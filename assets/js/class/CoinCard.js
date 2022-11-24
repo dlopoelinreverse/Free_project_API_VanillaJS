@@ -26,7 +26,9 @@ export default class CoinCard {
     return `
         <div class="thumb-left">
             <div class="img-container">
-                <img class="thumb-img" src=${this.thumb}>
+                <img class="thumb-img" src=${
+                  this.large ? this.large : this.thumb
+                } alt=${this.name}>
             </div>
             <div class="thumb-right">
                 <h2>${this.name}</h2>
@@ -38,13 +40,15 @@ export default class CoinCard {
   display() {
     return `
         <li class="card" id=${this.id}>
+            <button>FAV</button>
             <h2>${this.name}</h2>
             <h3>${this.apiSymbol}</h3>
             <h3>${this.symbol}</h3>
             <h3>${this.marketCapRank}</h3>
             <div class="card-btn-container">
-                <button class="get-price" id="${this.id}">Get price</button>
+                <div class="choose-btn-container"></div>
             </div>
+            <div class="current-price"></div>
         </li>        
         `;
   }
