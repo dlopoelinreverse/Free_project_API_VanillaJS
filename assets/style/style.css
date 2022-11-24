@@ -74,10 +74,17 @@ ul {
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  flex-direction: row;
+  flex-direction: column;
+}
+.card-header {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .thumb-left {
-  width: 50%;
+  width: 30%;
 }
 .img-container {
   /* height: 50%; */
@@ -89,9 +96,11 @@ ul {
 .thumb-img {
   width: 35px;
 }
-.get-price.hidden {
-  visibility: collapse;
+.card-buttons-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 }
-.choose-btn-container.hidden {
-  visibility: collapse;
+.get-price-btn-container {
+  /* visibility: collapse; */
 }

@@ -25,6 +25,11 @@ export default class CoinCard {
                 </div>
             </div>
             <div class="card-content">
+                <div class="card-data">
+                </div>
+                <div class="card-buttons-container"> 
+                                         
+                </div>
             </div>
         </li>
         `;

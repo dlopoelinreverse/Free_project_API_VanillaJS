@@ -9,14 +9,12 @@ const showSearchPage = (
   searchForm,
   cardContainer,
   searchError,
-  searchValue,
-  cardBtnContainer
+  searchValue
 ) => {
   // if show => creer le form => logique
 
   if (show) {
-    // console.log(show);
-
+    // display search form
     searchPage.classList.remove("hidden");
 
     searchForm.addEventListener("submit", async (e) => {
@@ -36,12 +34,11 @@ const showSearchPage = (
         const searchData = await fetchData("search", searchValue.value)
           .then((res) => res)
           .catch((err) => console.log(err));
-        displaySearchData(searchData, cardContainer, cardBtnContainer);
+        displaySearchData(searchData, cardContainer);
       }
     });
   } else {
-    // console.log(show);
-
+    // clear search form
     searchPage.classList.add("hidden");
   }
 };

@@ -13,7 +13,8 @@ const displaySelectedPrice = (
 
   for (const chooseButton of chooseButtons) {
     chooseButton.addEventListener("click", (e) => {
-      currentPrice.innerHTML = filterCurrency(e.target.id, currentPricesArray);
+      // currentPrice.innerHTML = filterCurrency(e.target.id, currentPricesArray);
+      console.log(e);
     });
   }
 };

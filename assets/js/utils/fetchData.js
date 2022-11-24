@@ -1,7 +1,6 @@
 const url = "https://api.coingecko.com/api/v3/";
 
 const fetchData = (query, value) => {
-  console.log(query);
   switch (query) {
     case "search":
       return new Promise((resolve, reject) => {
