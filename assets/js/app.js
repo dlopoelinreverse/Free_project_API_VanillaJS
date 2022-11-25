@@ -3,10 +3,11 @@ import navigation from "./components/navigation.js";
 import showHome from "./components/showHome.js";
 import showSearchPage from "./components/showSearchPage.js";
 import Home from "./pages/Home.js";
+import fetchData from "./utils/fetchData.js";
 
 console.log("Go faire un projet SYMPA !");
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   //INIT LocalStorage
   localStorage.setItem("favorites", []);
   // ***************   DOM   *********************
@@ -23,17 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardContainer = document.querySelector(".card-container");
   const searchError = document.querySelector(".search-error");
   const searchValue = document.getElementById("searchValue");
+  // const currencySelection = document.querySelector(".currency-selection");
+  //GET 250 COINSDATA
+  const coinsData = await fetchData("250");
+  console.log(coinsData);
+  // console.log(coinsData.sort((a, b) => b.current_price - a.current_price));
   // FAVORITES
   let domProps = {
     navContainer,
     navButtons,
-
     homePage,
     searchPage,
     searchForm,
     cardContainer,
     searchError,
     searchValue,
+    coinsData,
   };
   navigation(domProps);
   // basic state

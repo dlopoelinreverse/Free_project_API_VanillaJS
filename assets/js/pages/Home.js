@@ -10,6 +10,7 @@ const Home = (domProps) => {
     cardContainer,
     searchError,
     searchValue,
+    coinsData,
   } = domProps;
   console.log(homePage);
   toggleVisibility(homePage, "visible");

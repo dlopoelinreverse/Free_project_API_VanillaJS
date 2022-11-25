@@ -5,13 +5,13 @@ export default navigation = (domProps) => {
   const {
     navContainer,
     navButtons,
-
     homePage,
     searchPage,
     searchForm,
     cardContainer,
     searchError,
     searchValue,
+    coinsData,
   } = domProps;
   navContainer.classList.add(".initial");
 
