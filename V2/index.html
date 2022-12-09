@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet libre API V2</title>
+    <link rel="stylesheet" href="./assets/style/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav>
+        <ul class="nav-container">
+            <li class="nav-btn" id="home">Accueil</li>
+            <li class="nav-btn" id="search">Chercher</li>
+            <li class="nav-btn" id="fav">Favoris</li>
+        </ul>
+    </nav>
+
+    <div class="page"></div>
+
+    <div class="home-page hidden">
+        <h2>HOME</h2>
+    </div>
+    <div class="search-page hidden">
+
+        <div class="form-container">
+            <form class="search-form">
+                <input type="text" id="searchValue" placeholder="Recherche par nom..." />
+                <input type="submit" value="Chercher" id="searchSubmit" />
+                <p class="search-error hidden"></p>
+            </form>
+        </div>
+        <div class="result">
+            <ul class="card-container"></ul>
+        </div>
+    </div>
+    <div class="favorites-page hidden">
+        <h2>Favorites</h2>
+        <ul class="favorites-cards-container"></ul>
+    </div>
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+
+</html>
